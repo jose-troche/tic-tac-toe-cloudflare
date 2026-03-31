@@ -1,0 +1,72 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#F7F1E8"/>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1F2937" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <text x="90" y="86" fill="#1E293B" font-family="Georgia, serif" font-size="40" font-weight="700">
+    Tic-Tac-Toe on Cloudflare
+  </text>
+  <text x="90" y="124" fill="#64748B" font-family="Arial, sans-serif" font-size="24">
+    From prompt to globally deployed real-time multiplayer app on the free tier
+  </text>
+
+  <rect x="90" y="190" width="300" height="200" rx="28" fill="#FFF8F1" stroke="#D6C2AA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="126" y="238" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">
+    <tspan x="126" dy="0">Players and</tspan>
+    <tspan x="126" dy="32">Spectators</tspan>
+  </text>
+  <text x="126" y="308" fill="#475569" font-family="Arial, sans-serif" font-size="22">Private X link</text>
+  <text x="126" y="340" fill="#475569" font-family="Arial, sans-serif" font-size="22">Private O link</text>
+  <text x="126" y="372" fill="#475569" font-family="Arial, sans-serif" font-size="22">Read-only spectator link</text>
+
+  <rect x="470" y="160" width="380" height="248" rx="30" fill="#FFFFFF" stroke="#D6C2AA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="506" y="226" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">Cloudflare Worker</text>
+  <text x="506" y="278" fill="#475569" font-family="Arial, sans-serif" font-size="22">Serves pages and APIs</text>
+  <text x="506" y="312" fill="#475569" font-family="Arial, sans-serif" font-size="22">Creates and routes games</text>
+  <text x="506" y="346" fill="#475569" font-family="Arial, sans-serif" font-size="22">Handles edge delivery worldwide</text>
+  <text x="506" y="380" fill="#475569" font-family="Arial, sans-serif" font-size="22">Proxies live WebSocket traffic</text>
+
+  <rect x="930" y="140" width="340" height="288" rx="30" fill="#F3FAF8" stroke="#9FD5CC" stroke-width="2" filter="url(#shadow)"/>
+  <text x="968" y="208" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">Durable Object</text>
+  <text x="968" y="254" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">One instance per game</text>
+  <text x="968" y="304" fill="#475569" font-family="Arial, sans-serif" font-size="22">Board + turn state</text>
+  <text x="968" y="338" fill="#475569" font-family="Arial, sans-serif" font-size="22">Move validation</text>
+  <text x="968" y="372" fill="#475569" font-family="Arial, sans-serif" font-size="22">Live broadcast fan-out</text>
+  <text x="968" y="406" fill="#475569" font-family="Arial, sans-serif" font-size="22">Concurrent match isolation</text>
+
+  <rect x="1315" y="190" width="215" height="194" rx="28" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1334" y="240" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">
+    <tspan x="1334" dy="0">Persistent</tspan>
+    <tspan x="1334" dy="32">State</tspan>
+  </text>
+  <text x="1334" y="310" fill="#475569" font-family="Arial, sans-serif" font-size="18">SQLite-backed storage</text>
+  <text x="1334" y="340" fill="#475569" font-family="Arial, sans-serif" font-size="18">TTL cleanup on alarms</text>
+
+  <path d="M390 282H450" stroke="#475569" stroke-width="4"/>
+  <path d="M450 276L462 282L450 288Z" fill="#475569"/>
+  <path d="M850 282H910" stroke="#475569" stroke-width="4"/>
+  <path d="M910 276L922 282L910 288Z" fill="#475569"/>
+  <path d="M1270 288H1303" stroke="#475569" stroke-width="4"/>
+  <path d="M1303 282L1315 288L1303 294Z" fill="#475569"/>
+
+  <path d="M930 208C886 208 874 190 850 190" stroke="#0F766E" stroke-width="4" stroke-dasharray="10 10"/>
+  <text x="700" y="148" fill="#0F766E" font-family="Arial, sans-serif" font-size="21" font-weight="700">Create / Read / Move / Rematch</text>
+
+  <path d="M930 356C884 356 868 394 850 394" stroke="#C2410C" stroke-width="4" stroke-dasharray="10 10"/>
+  <text x="676" y="454" fill="#C2410C" font-family="Arial, sans-serif" font-size="21" font-weight="700">Live WebSocket updates to every viewer</text>
+
+  <rect x="90" y="500" width="1420" height="250" rx="32" fill="#FFFFFF" stroke="#D6C2AA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="126" y="562" fill="#0F172A" font-family="Arial, sans-serif" font-size="32" font-weight="700">Why this scales well</text>
+  <text x="126" y="614" fill="#475569" font-family="Arial, sans-serif" font-size="25">
+    Each gameId maps to a separate Durable Object, so multiple pairs can play concurrently without state collisions.
+  </text>
+  <text x="126" y="654" fill="#475569" font-family="Arial, sans-serif" font-size="25">
+    The Worker runs on Cloudflare’s edge network, which helps keep response times low for users around the world.
+  </text>
+  <text x="126" y="694" fill="#475569" font-family="Arial, sans-serif" font-size="25">
+    Finished and abandoned matches are cleaned up automatically, keeping the free-tier footprint efficient.
+  </text>
+</svg>
